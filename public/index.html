@@ -9,14 +9,26 @@
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
 </head>
 <body>
-<script type="text/x-handlebars" data-template-name="fightquick">
-    <section id="fightquickapp">
-        ... additional lines truncated for brevity ...
-    </section>
-
-    <footer id="info">
-        <p>Double-click to edit a todo</p>
-    </footer>
+<script type="text/x-handlebars" data-template-name="pokemons">
+    <ul id="pokemon-list">
+        {{#each itemController="pokemon"}}
+        <li>
+            <h1>{{name}}</h1>
+            <h2>Super effective</h2>
+            <ul>
+                {{#each superEffectiveTypes}}
+                    <li>{{name}} {{value}}x</li>
+                {{/each}}
+            </ul>
+            <h2>Not effective</h2>
+            <ul>
+                {{#each notEffectiveTypes}}
+                <li>{{name}} {{value}}x</li>
+                {{/each}}
+            </ul>
+        </li>
+        {{/each}}
+    </ul>
 </script>
 
 <script src="bower_components/jquery/jquery.min.js"></script>
@@ -27,5 +39,7 @@
 <script src="js/application.js"></script>
 <script src="js/router.js"></script>
 <script src="js/models/pokemon.js"></script>
+<script src="js/controllers/pokemons_controller.js"></script>
+<script src="js/controllers/pokemon_controller.js"></script>
 </body>
 </html>
