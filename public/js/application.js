@@ -1,0 +1,1 @@
+window.FightQuick = Ember.Application.create();
