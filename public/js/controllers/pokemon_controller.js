@@ -1,19 +1,20 @@
 App.PokemonController = Ember.ObjectController.extend({
     superEffectiveTypes: function (a) {
         var effectiveness = this._typeEffectiveness(this.get('model').get('types'));
-        return [
-            {name: 'psychic', value: 2},
-            {name: 'rock', value: 4}
-        ];
+        return effectiveness.filter(function (value) {
+            return value.value > 1;
+        });
     }.property('model.types'),
     notEffectiveTypes: function (a) {
         var effectiveness = this._typeEffectiveness(this.get('model').get('types'));
-        return [
-            {name: 'fire', value: 0.25},
-            {name: 'flying', value: 0.5}
-        ];
+        return effectiveness.filter(function (value) {
+            return value.value < 1;
+        });
     }.property('model.types'),
     _typeEffectiveness: function (types) {
-        return {'fire': 0.25};
+        return [
+            {name: 'fire', value: 0.25},
+            {name: 'water', value: 2}
+        ];
     }
 });
