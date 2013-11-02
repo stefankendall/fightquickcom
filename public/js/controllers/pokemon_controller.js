@@ -1,7 +1,6 @@
 App.PokemonController = Ember.ObjectController.extend({
     superEffectiveTypes: function (a) {
         var effectiveness = this._typeEffectiveness(this.get('model').get('types'));
-        console.log(effectiveness);
         return effectiveness.filter(function (value) {
             return value.value > 1;
         });
