@@ -11,10 +11,29 @@
 <body>
 <script type="text/x-handlebars">
     <ul id="pokemon-list">
-        {{#each pokemon}}
-            {{name}}
+        {{#each p in pokemon}}
+        {{poke-view pokemon=p}}
         {{/each}}
     </ul>
+</script>
+
+<script type="text/x-handlebars" id="components/poke-view">
+    <li>
+        <h1>{{name}}</h1>
+
+        <h2>Super effective</h2>
+        <ul>
+            {{#each superEffectiveTypes}}
+            <li>{{name}} {{value}}x</li>
+            {{/each}}
+        </ul>
+        <h2>Not effective</h2>
+        <ul>
+            {{#each notEffectiveTypes}}
+            <li>{{name}} {{value}}x</li>
+            {{/each}}
+        </ul>
+    </li>
 </script>
 
 <script src="bower_components/jquery/jquery.min.js"></script>
@@ -26,5 +45,6 @@
 <script src="js/models/pokemon-fixtures.js"></script>
 <script src="js/typechart.js"></script>
 <script src="js/application.js"></script>
+<script src="js/views/pokemon.js"></script>
 </body>
 </html>
