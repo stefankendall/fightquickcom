@@ -1,4 +1,4 @@
-App.TypeChart = {"normal": {
+window.TypeChart = {"normal": {
     "normal": 1,
     "fighting": 1,
     "flying": 1,
